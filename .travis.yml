@@ -1,8 +1,9 @@
-language: java
+language: python
 
 jobs:
   include:
     - stage: "Testing Shell Script"
       name: "Testing Script"
       if: branch = master
-      script: ./test.sh
+      script:
+        -test.py
