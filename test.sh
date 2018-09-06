@@ -3,8 +3,8 @@ do
 	CONTENT="<types>\n<members>$file</members>\n<name>Test Name</name>\n</types>"
 done
 
-C = $(echo $CONTENT | sed 's/\//\\\//g')
-sed "/<\/Students>/ s/.*/${C}\n&/" package.xml
+C=$(echo $CONTENT | sed 's/\//\\\//g')
+sed "/<\/Package>/ s/.*/${C}\n&/" package.xml
 
 while read -r line;
 do
