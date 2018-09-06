@@ -6,7 +6,7 @@
 
 files = `git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT`
 
-sed "/<types>/,/<\/types>/ s/<members>*<\/members>/<members>$files<\/members>/g;" package.xml
+sed "s/<members>*<\/members>/<members>$files<\/members>;" package.xml
 
 # while read -r line;
 # do
