@@ -1,0 +1,10 @@
+language: java
+
+jobs:
+  include:
+    - stage: "Deploy to Sandbox"
+      name: "Deploy Sandbox"
+      if: branch = master
+      script: test.py
+      #script: ./test.sh
+      # script: ant deploy-sandbox
