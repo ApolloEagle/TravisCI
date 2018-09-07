@@ -1,3 +1,5 @@
-files=`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT`
+files=`git diff-tree --no-commit-id --name-only -r 2a22fa75c9755e302385893bb3c1de684e0579ca`
 
-sed 's/<members>*<\/members>/<members>$files<\/members>/g' package.xml
+if [[ $file = *'src/classes/'* ]]; then
+	sed "s/\(<members.*>\)[^<>]*\(<\/members.*\)/\1$files\2/" src/package.xml
+fi
