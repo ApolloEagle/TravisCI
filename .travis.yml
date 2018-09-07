@@ -1,9 +1,8 @@
-language: python
+language: java
 
 jobs:
   include:
-    - stage: "Testing Shell Script"
-      name: "Testing Script"
+    - stage: "Deploy Sandbox"
+      name: "Testing Shell Script"
       if: branch = master
-      script:
-        -test.py
+      script: ./test.sh
