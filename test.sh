@@ -3,7 +3,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     <version>43.0</version>
 </Package>' > src/package.xml
 
-for files in `git diff-tree --no-commit-id --name-only -r 59778f656328c3430935590059ea1722023de29f`
+for files in `git diff-tree --no-commit-id --name-only -r TRAVIS_COMMIT`
 do
 	if [[ $files = *"src/classes/"* ]]; then
 		class=true
