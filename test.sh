@@ -9,11 +9,6 @@ do
 		class=true
 		classes+=( ${files#*src/classes/} )
 	fi
-
-	if [[ $files = *"src/package"* ]]; then
-		page=true
-		pages+=( ${files#*src/} )
-	fi
 done
 
 if [[ '$class'=true ]]; then
@@ -21,14 +16,6 @@ if [[ '$class'=true ]]; then
 	for (( i=0; i<${#classes[@]}; i++))
 	do
 		sed -i '/ApexClass/i \\t\t<members>'${classes[$i]}'</members>' src/package.xml
-	done
-fi
-
-if [[ '$page'=true ]]; then
-	sed -i '/<version>/i \\t<types>\n\t\t<name>ApexPage</name>\n\t</types>' src/package.xml
-	for (( i=0; i<${#pages[@]}; i++))
-	do
-		sed -i '/ApexPage/i \\t\t<members>'${pages[$i]}'</members>' src/package.xml
 	done
 fi
 
